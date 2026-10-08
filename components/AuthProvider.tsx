@@ -18,7 +18,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const refresh = useCallback(async () => {
     try {
-      setMe(await api<Me>("/api/me"));
+      setMe(await api<Me | null>("/api/me"));
     } catch {
       setMe(null);
     } finally {
@@ -33,7 +33,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let alive = true;
-    api<Me>("/api/me")
+    api<Me | null>("/api/me")
       .then((m) => alive && setMe(m))
       .catch(() => alive && setMe(null))
       .finally(() => alive && setLoading(false));
