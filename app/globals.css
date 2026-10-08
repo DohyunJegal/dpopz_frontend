@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #e91e8c;
+  --color-th: #6b1d42;   /* 표 머리글 배경 */
+}
+
+/* 선택 박스, 스크롤바 등 테로 */
+html {
+  color-scheme: dark;
+}
+
+/* 글꼴은 layout.tsx → next/font로 로드, JP → KR 순서 */
+body {
+  background: #333333;
+  color: #ffffff;
+  font-family: var(--font-noto-sans-jp), var(--font-noto-sans-kr), "Hiragino Sans", "Yu Gothic", "Malgun Gothic", Arial, sans-serif;
+}
